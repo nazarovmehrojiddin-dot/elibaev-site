@@ -178,6 +178,7 @@ footer{background:#eff4f7;color:var(--teal);padding:0 0 36px;font-size:14px;text
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','2660880001006953');fbq('track','PageView');
 </script>
+<script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(114504031,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script>
 </head>
 <body>
 <header class="hero"><div class="wrap">
@@ -295,6 +296,21 @@ document.getElementById('lead').addEventListener('submit',function(e){
  f.querySelectorAll('input,button').forEach(x=>x.disabled=true);
  document.getElementById('ok').style.display='block';
 });
+</script>
+<script>
+(function(){var ID=114504031;function g(n){try{ym(ID,'reachGoal',n)}catch(e){}}
+document.querySelectorAll('input').forEach(function(i){i.classList.add('ym-disable-keys')});
+document.querySelectorAll('[data-contact]').forEach(function(a){a.addEventListener('click',function(){g('phone')})});
+document.querySelectorAll('a[href="#aloqa"]').forEach(function(a){a.addEventListener('click',function(){g('apply_click')})});
+document.querySelectorAll('a[href*="t.me"]').forEach(function(a){a.addEventListener('click',function(){g('telegram')})});
+document.querySelectorAll('a[href*="instagram.com"]').forEach(function(a){a.addEventListener('click',function(){g('instagram')})});
+var f=document.getElementById('lead');if(f){var st=0;f.addEventListener('focusin',function(){if(!st){st=1;g('form_start')}});f.addEventListener('submit',function(){g('form_submit')})}
+document.querySelectorAll('details').forEach(function(d){d.addEventListener('toggle',function(){if(d.open)g('faq_open')})});
+var secs={about:'sec_about',services:'sec_services',edu:'sec_edu',appt:'sec_form',faq:'sec_faq'};
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){for(var k in secs){if(e.target.classList.contains(k))g(secs[k])}io.unobserve(e.target)}})},{threshold:.3});
+for(var k in secs){var el=document.querySelector('section.'+k);if(el)io.observe(el)}}
+var sd={};window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;if(h<=0)return;var p=scrollY/h*100;[25,50,75,90].forEach(function(t){if(p>=t&&!sd[t]){sd[t]=1;g('scroll_'+t)}})},{passive:true});
+})();
 </script>
 </body>
 </html>
