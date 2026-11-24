@@ -160,6 +160,12 @@ footer{background:#eff4f7;color:var(--teal);padding:0 0 36px;font-size:14px;text
  .badge{padding:8px 12px;left:0}.badge b{font-size:36px}.badge span{font-size:12px}
  .hero h1{font-size:54px;margin-top:6px}
  .hero p{font-size:16px;padding:0 10px}
+ .hero{padding:14px 0 44px}
+ .stage{height:290px}
+ .stage img{width:285px}
+ .hero h1{font-size:48px}
+ .hero p{margin:12px 0 18px}
+ .hero .btns{gap:8px}
  .cards,.quotes{grid-template-columns:1fr}
  .lead{font-size:18px}
  .banner{padding:24px 20px}.banner q{font-size:20px}
@@ -305,9 +311,9 @@ document.querySelectorAll('a[href="#aloqa"]').forEach(function(a){a.addEventList
 document.querySelectorAll('a[href*="t.me"]').forEach(function(a){a.addEventListener('click',function(){g('telegram')})});
 document.querySelectorAll('a[href*="instagram.com"]').forEach(function(a){a.addEventListener('click',function(){g('instagram')})});
 var f=document.getElementById('lead');if(f){var st=0;f.addEventListener('focusin',function(){if(!st){st=1;g('form_start')}});f.addEventListener('submit',function(){g('form_submit')})}
-document.querySelectorAll('details').forEach(function(d){d.addEventListener('toggle',function(){if(d.open)g('faq_open')})});
+document.querySelectorAll('details > summary').forEach(function(m){m.addEventListener('click',function(){if(!m.parentNode.open)g('faq_open')})});
 var secs={about:'sec_about',services:'sec_services',edu:'sec_edu',appt:'sec_form',faq:'sec_faq'};
-if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){for(var k in secs){if(e.target.classList.contains(k))g(secs[k])}io.unobserve(e.target)}})},{threshold:.3});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){for(var k in secs){if(e.target.classList.contains(k))g(secs[k])}io.unobserve(e.target)}})},{threshold:0,rootMargin:'0px 0px -35% 0px'});
 for(var k in secs){var el=document.querySelector('section.'+k);if(el)io.observe(el)}}
 var sd={};window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;if(h<=0)return;var p=scrollY/h*100;[25,50,75,90].forEach(function(t){if(p>=t&&!sd[t]){sd[t]=1;g('scroll_'+t)}})},{passive:true});
 })();
